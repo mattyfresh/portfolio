@@ -11,3 +11,7 @@
 .App-intro {
   font-size: large;
 }
+
+* {
+  font-family: monospace;
+}

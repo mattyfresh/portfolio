@@ -7,16 +7,12 @@ import {
   Link,
 } from 'react-router-dom';
 
-const HomePage = (props) => {
- return <h1>THIS IS THE HOMEPAGE</h1>;
-};
+import Home from './components/Home';
+import Header from './components/Header';
+import MusicContainer from './containers/MusicContainer'
 
 const AboutPage = (props) => {
- return <h1>THIS IS THE ABOUT PAGE</h1>;
-};
-
-const MusicPage = (props) => {
- return <h1>THIS IS THE MUSIC PAGE</h1>;
+  return <h1>THIS IS THE ABOUT PAGE</h1>;
 };
 
 class App extends Component {
@@ -24,12 +20,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <div className="App-header">
-            <h2>Matthew Padich</h2>
-          </div>
-          <Route exact path="/" component={HomePage}/>
+          <Header />
+          <Route exact path="/" component={Home}/>
           <Route path="/about" component={AboutPage}/>
-          <Route path="/music" component={MusicPage}/>
+          <MusicContainer />
         </div>
       </Router>
     );
