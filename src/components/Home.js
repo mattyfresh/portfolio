@@ -4,7 +4,7 @@ const Home = (props) => {
     return (
         <div className="home__wrapper">
             <div className="home__text-wrapper">
-                Here are some links to some my work and things I do for fun:
+                Here are some links to some of my work and things I do for fun:
                 <ul>
                     <li><a href="https://github.com/mattyfresh" target="_blank">GitHub</a></li>
                     <li><a href="https://www.linkedin.com/in/matthew-padich-6bab9a93/" target="_blank">LinkedIn</a></li>
