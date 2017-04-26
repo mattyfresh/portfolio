@@ -6,6 +6,10 @@ const Music = (props) => {
         return <h1>Loading...</h1>
     }
 
+    if (props.error) {
+        return <code>Uh oh.. something went wrong.</code>
+    }
+
     return (
         <div className="music__wrapper">
             <h3>Now Listening To: </h3>

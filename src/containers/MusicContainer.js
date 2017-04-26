@@ -39,17 +39,18 @@ class MusicContainer extends Component {
                 })
             })
             .catch((err) => {
-                console.log(err)
                 this.setState({error: true})
             })
     }
 
     componentDidMount() {
-        this.fetchCurrentSongs();
+        this.fetchCurrentSongs()
     }
 
     render() {
-        return <Music loading={this.state.loading} currentSong={this.state.currentSong} error={this.state.error} />
+        return <Music loading={this.state.loading}
+                    currentSong={this.state.currentSong}
+                    error={this.state.error} />
     }
 }
 
