@@ -87,8 +87,8 @@ ol {
   padding-top: 0;
 }
 
-.music__meta-wrapper a {
-  display: flex;
+.music__wrapper a {
+  display: inline-flex;
 }
 
 .music__text-wrapper {
