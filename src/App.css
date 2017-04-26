@@ -78,7 +78,7 @@ ol {
   margin-top: 10px;
 }
 
-.about__wrapper h1 {
+.about__wrapper h2 {
   margin-top: 0;
 }
 
@@ -97,7 +97,6 @@ ol {
 
 /* MOBILE */
 @media screen and (max-width: 700px) {
-
   .main-content__wrapper {
     display: block;
   }
