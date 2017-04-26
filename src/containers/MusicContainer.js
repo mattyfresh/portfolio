@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-
 import Music from '../components/Music'
-
 import axios from 'axios'
-
-axios.defaults.headers.common['Authorization'] = 'Bearer BQCZYM6ZZPe3-sU1Rt2KdhFqg7xGJ7c-FbtjuO219wn21LnbO1pHOl1BZlg2rFyQ-Png9sLViUAJgtr3YCP3mRB_dWFYlcVE32pm_CU6a4CGA4dAQcaY9-Ubjp_qy9LoNQjIM6qIcmSYpVNUaJ_lnbwptRs';
 
 class MusicContainer extends Component {
     
@@ -12,27 +8,30 @@ class MusicContainer extends Component {
         super(props)
         this.state = {
             loading: true,
-            currentSong: {}
+            currentSong: {},
+            error: false
         }
     }
 
-
-    // @TODO get/generate a new token
-    // @see https://developer.spotify.com/web-api/authorization-guide/#client-credentials-flow
     fetchCurrentSongs() {
-        const instance = axios.create({
-            baseURL: 'https://api.spotify.com/v1/me/player',
-            method: 'GET'
+        axios.get('http://ws.audioscrobbler.com/2.0/',
+        {
+            params: {
+                method: 'user.getrecenttracks',
+                user: 'mpadic1',
+                api_key: '368a318e6c38cb631a5a5978d4118b2b',
+                format: 'json',
+                limit: 1
+            }
         })
-
-        instance.get()
-            .then((data) => {
-                const meta = data.data
+            .then((resp) => {
+                const currentTrack = resp.data.recenttracks.track[0];
                 const currentSong = {
-                    albumTitle: meta.item.album.name,
-                    artist: meta.item.artists[0].name,
-                    albumArt: meta.item.album.images[1].url,
-                    title: meta.item.name,
+                    albumTitle: currentTrack.album['#text'],
+                    artist: currentTrack.artist['#text'],
+                    albumArt: currentTrack.image[1]['#text'],
+                    link: currentTrack.url,
+                    title: currentTrack.name
                 }
                 this.setState({
                     currentSong,
@@ -41,6 +40,7 @@ class MusicContainer extends Component {
             })
             .catch((err) => {
                 console.log(err)
+                this.setState({error: true})
             })
     }
 
@@ -49,7 +49,7 @@ class MusicContainer extends Component {
     }
 
     render() {
-        return <Music loading={this.state.loading} currentSong={this.state.currentSong} />
+        return <Music loading={this.state.loading} currentSong={this.state.currentSong} error={this.state.error} />
     }
 }
 

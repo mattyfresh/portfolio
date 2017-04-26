@@ -1,4 +1,5 @@
 .App {
+  overflow: hidden;
   text-align: center;
 }
 
@@ -12,6 +13,88 @@
   font-size: large;
 }
 
+.content__wrapper {
+  max-width: 1000px;
+  margin: auto;
+}
+
 * {
   font-family: monospace;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+ul {
+  font-size: 18px;
+  list-style: none;
+  padding: 0;
+}
+
+/* SHARED */
+.music__wrapper,
+.home__wrapper,
+.about__wrapper {
+  padding: 20px;
+  text-align: left;
+}
+
+/* HOME PAGE */
+.home__wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.home__wrapper img {
+  height: 320px;
+}
+
+.home__text-wrapper {
+  font-size: 18px;
+}
+
+.home__image-wrapper {
+  padding-right: 20px;
+}
+
+/* ABOUT PAGE */
+.about__wrapper li {
+  margin-top: 10px;
+}
+
+/* MUSIC PAGE */
+.music__wrapper {
+  padding-top: 0;
+}
+
+.music__album-img,
+.music__text-wrapper {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.music__text-wrapper {
+  padding-left: 10px;
+  width: 70%;
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  .home__wrapper {
+    display: block;
+  }
+
+  .home__image-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .home__wrapper img {
+    height: auto;
+    margin: auto;
+    padding-right: 0;
+    width: 90%;
+  }
 }

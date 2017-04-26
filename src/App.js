@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-} from 'react-router-dom';
+  Link
+} from 'react-router-dom'
 
-import Home from './components/Home';
-import Header from './components/Header';
+import Home from './components/Home'
+import Header from './components/Header'
 import MusicContainer from './containers/MusicContainer'
-
-const AboutPage = (props) => {
-  return <h1>THIS IS THE ABOUT PAGE</h1>;
-};
+import About from './components/About'
 
 class App extends Component {
   render() {
@@ -21,13 +18,15 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          <Route exact path="/" component={Home}/>
-          <Route path="/about" component={AboutPage}/>
-          <MusicContainer />
+          <div className="content__wrapper">
+            <Route exact path="/" component={Home}/>
+            <Route path="/about" component={About}/>
+            <MusicContainer />
+          </div>
         </div>
       </Router>
     );
   }
 }
 
-export default App;
+export default App

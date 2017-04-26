@@ -7,12 +7,18 @@ const Music = (props) => {
     }
 
     return (
-        <div>
+        <div className="music__wrapper">
             <h3>Now Listening To: </h3>
-            <h3>{props.currentSong.title}</h3>
-            <div>by {props.currentSong.artist}</div>
-            <div>on {props.currentSong.albumTitle}</div>
-            <img src={props.currentSong.albumArt} alt="album artwork" />
+            <div className="music__meta-wrapper">
+                <a href={props.currentSong.link} target="_blank" rel="_nofollow">
+                    <img className="music__album-img" src={props.currentSong.albumArt} alt={props.currentSong.albumTitle} />
+                    <div className="music__text-wrapper">                
+                        <div className="bold">{props.currentSong.title}</div>
+                        <div>from the album <span className="bold">{props.currentSong.albumTitle}</span></div>
+                        <div>by <span className="bold">{props.currentSong.artist}</span></div>
+                    </div>
+                </a>
+            </div>
         </div>
     )
 }
